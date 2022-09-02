@@ -1,0 +1,66 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  orientation: landscape;
+}
+
+canvas{
+  display: block;
+}
+
+.AddButton{
+  width: 105px; /* 70px */ /* 6.6%px */
+  height: 105px; /* 70px */ /* 13.6%px */
+  border-radius: 15px; /* 15px */
+  background-color: #dde016;
+  font-size: 35px;
+  padding: 10px;
+  background-size: cover;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition-duration: 0.0s; /* Safari */
+  transition-duration: 0.0s;
+  outline: none;
+}
+
+.AddCalculatorBase{
+  width: 100%; /* 260px 17.4%;*/
+  height: 100%; /* 400px */
+  border-radius: 15px; /* 15px */
+  background-color: #ead180;
+  /*padding: 10px;*/
+  background-size: cover;
+  display: inline-block;
+  -webkit-transition-duration: 0.0s; /* Safari */
+  transition-duration: 0.0s;
+  outline: none;
+}
+
+.AddButtonLarge{
+  width: 211px; /* 140px */ /* 13.4%px */
+  height: 103.5px; /* 70px */ /* 13.6%px */
+  border-radius: 15px; /* 15px */
+  background-color: #dde016;
+  font-size: 35px;
+  padding: 10px;
+  background-size: cover;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition-duration: 0.0s; /* Safari */
+  transition-duration: 0.0s;
+  outline: none;
+}
+
+.AddResultScreen{
+  width: 100%; /* 250px */
+  height: 200px; /* 50px */
+  border-radius: 10px;
+  background-color: #3b0875;
+  padding: 10px;
+  background-size: cover;
+  display: inline-block;
+  -webkit-transition-duration: 0.0s; /* Safari */
+  transition-duration: 0.0s;
+  outline: none;
+}
