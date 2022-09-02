@@ -50,7 +50,7 @@ function setup(){
   
   CalculatorBase = createImg("nothing.png");
   CalculatorBase.class("AddCalculatorBase");
-  CalculatorBase.position(windowWidth / 2 - 120, height / 2 - 200 );
+  CalculatorBase.position(windowWidth / 2 - 120, height / 2 - 200);
 
   ResultScreen = createButton("");
   ResultScreen.class("AddResultScreen");
@@ -95,7 +95,7 @@ function setup(){
 
   OneButton = createButton("1");
   OneButton.class("AddButton");
-  /*OneButton.style("width", '68px');OneButton.style("height", '69px');
+  /*OneButton.style("width", '105px');OneButton.style("height", '105px');
   OneButton.style("border-radius", '10px');
   OneButton.style("background-color", '#dde016');
   OneButton.style("font-size", '35px'); 
@@ -204,12 +204,12 @@ function setup(){
   FourButton.position(1, height / 2 + 81.5-49);
   FiveButton.position(70*1.5+2, height / 2 + 81.5-49);
   SixButton.position(140*1.5+3, height / 2 + 81.5-49);
-  SevenButton.position(1+OneButton.width/35, height / 2 - 24-49);
+  SevenButton.position(1, height / 2 - 24-49);
   EightButton.position(70*1.5+2, height / 2 - 24-49);
   NineButton.position(140*1.5+3, height / 2 - 24-49);
   ZeroButton.position(1, height / 2 + 243.6);
   DotButton.position(140*1.5+3, height / 2 + 243.6);
-  ClearButton.position(1+OneButton.width/35, height / 2 - 130-49);
+  ClearButton.position(1, height / 2 - 130-49);
   DeleteButton.position(70*1.5+2, height / 2 - 130-49);
   ResultButton.position(210*1.5+4, height / 2 - 130-49);
   PlusButton.position(210*1.5+4, height / 2 - 24-49);
