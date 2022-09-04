@@ -15,6 +15,7 @@ var NineButton;
 var ZeroButton;
 
 var PlusButton, MinusButton, MultiplicationButton, DivisionButton, RaizQuadradaButton, 
+PotenciaButton, 
 ClearButton, DeleteButton, ResultButton;
 
 var ResultText;
@@ -31,6 +32,8 @@ var raizQuadrada = false;
 
 var operation = "";
 
+var potencianumbers = "";
+
 var keyBoardDelayTime = true;
 
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -38,6 +41,8 @@ var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 var initialWidth, newWidthAdded;
 
 var operationPreviewText, numberPreviewText;
+
+var oldNumbers = [''];
 
 function preload(){
   
@@ -175,7 +180,10 @@ function setup(){
   //DivisionButton.mousePressed(calculate("/"));
 
   RaizQuadradaButton = createButton("√");
-  RaizQuadradaButton.class("AddButton");
+  RaizQuadradaButton.class("AddSmallButton");
+
+  PotenciaButton = createButton("xY");//&#x00B2
+  PotenciaButton.class("AddSmallButton");
   
   DeleteButton = createButton("Del");
   DeleteButton.class("AddButton");
@@ -216,7 +224,8 @@ function setup(){
   MinusButton.position(210*1.5+4, height / 2 + 81.5-49);
   MultiplicationButton.position(210*1.5+4, height / 2 + 187-49);
   DivisionButton.position(210*1.5+4, height / 2 + 243.6);
-  RaizQuadradaButton.position(140*1.5+3, height / 2 - 130-49)
+  RaizQuadradaButton.position(140*1.5+3, height / 2 - 130-49);
+  PotenciaButton.position(140*1.5+3 , height / 2 - 95-31);
   ResultScreen.position(0, 0);
 
   numberPreviewText.position(width/2-numberPreviewText.width/2, ResultScreen.y-5-ResultScreen.height-numberPreviewText.height/2);
@@ -243,8 +252,9 @@ function setup(){
   MultiplicationButton.mousePressed(handleMultiply);
   DivisionButton.mousePressed(handleDivide);
   RaizQuadradaButton.mousePressed(handleRaizQuadrada);
+  PotenciaButton.mousePressed(handlePotencia);
   ResultButton.mousePressed(handleResult);
-  //DeleteButton.mousePressed(handleDelete);
+  DeleteButton.mousePressed(handleDelete);
   DotButton.mousePressed(handleDot);
   ClearButton.mousePressed(handleClear);
 
@@ -557,51 +567,71 @@ function keyTyped() {
 function handleOne(){
   numbers = numbers+""+1;
   console.log(numbers);
+
+  oldNumbers.push(numbers);
 }
 
 function handleTwo(){
   numbers = numbers+""+2;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleThree(){
   numbers = numbers+""+3;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleFour(){
   numbers = numbers+""+4;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleFive(){
   numbers = numbers+""+5;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleSix(){
   numbers = numbers+""+6;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleSeven(){
   numbers = numbers+""+7;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleEight(){
   numbers = numbers+""+8;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleNine(){
   numbers = numbers+""+9;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleZero(){
   numbers = numbers+""+0;
   console.log(numbers);
+  
+  oldNumbers.push(numbers);
 }
 
 function handleClear(){
@@ -610,12 +640,16 @@ function handleClear(){
   allNumbers = [];
   dot = false;
   operation = "";
+  oldNumbers = [''];
 }
 
 function handleDot(){
   if(dot == false && numbers !== ""){
     numbers = numbers+".";
     dot = true;
+
+      
+    oldNumbers.push(numbers);
   }
   console.log(numbers);
 }
@@ -630,6 +664,12 @@ function handleResult(){
   if(allNumbers.length === 1 && result !== "Sem Resultados"){
     allNumbers.push('0');
   }
+
+  //if(potencianumbers !== "" && allNumbers.length < 2){
+  //  result = pow(result, potencianumbers);
+  //  potencianumbers = "";
+  //}
+
   if(allNumbers.length >= 2 || result !== "Sem Resultados"){
     var othernumber = allNumbers[e];
     var othernumber2 = allNumbers[e+1];
@@ -677,6 +717,11 @@ function handleResult(){
       }else if(e !== 0 && result !== "Sem Resultados"){
         result = parseFloat(result);
       }
+
+      if(potencianumbers !== ""){
+        potencianumbers = parseFloat(potencianumbers);
+      }
+
       othernumber2 = parseFloat(othernumber2);
       if(result == "Sem Resultados"){
         console.log("number1:"+othernumber, "number2:"+othernumber2);
@@ -714,9 +759,14 @@ function handleResult(){
           result = result/othernumber2;
         }
       }
+      //if(potencianumbers !== ""){
+      //  result = pow(result, potencianumbers);
+      //  potencianumbers = "";
+      //}
       console.log("result:"+result);
     }
     allNumbers = [];
+    oldNumbers = [''];
   }
 }
 
@@ -727,10 +777,13 @@ function handlePlus(){
     dot = false;
     console.log(numbers, allNumbers);
     operation = "plus";
+
+    oldNumbers = [''];
   }
   if(result !== "Sem Resultados" && operation !== "plus"){
     operation = "plus";
   }
+  
 }
 
 function handleMinus(){
@@ -740,6 +793,8 @@ function handleMinus(){
     dot = false;
     console.log(numbers, allNumbers);
     operation = "minus";
+
+    oldNumbers = [''];
   }
   if(result !== "Sem Resultados" && operation !== "minus"){
     operation = "minus";
@@ -753,6 +808,8 @@ function handleMultiply(){
     dot = false;
     console.log(numbers, allNumbers);
     operation = "multiply";
+
+    oldNumbers = [''];
   }
   if(result !== "Sem Resultados" && operation !== "multiply"){
     operation = "multiply";
@@ -766,6 +823,8 @@ function handleDivide(){
     dot = false;
     console.log(numbers, allNumbers);
     operation = "divide";
+
+    oldNumbers = [''];
   }
   if(result !== "Sem Resultados" && operation !== "divide"){
     operation = "divide";
@@ -787,6 +846,25 @@ function handleRaizQuadrada(){
   }
 }
 
+function handlePotencia(){
+  if(numbers !== "" && result !== "Sem Resultados" && potencianumbers == ""){
+    potencianumbers = numbers;
+    numbers = "";
+    console.log("Potencia:"+potencianumbers);
+    result = pow(result, potencianumbers);
+    console.log(result);
+
+    potencianumbers = "";
+  }
+}
+
+function handleDelete(){
+  if(oldNumbers.length >= 1){
+    numbers = oldNumbers[oldNumbers.length-2];
+    oldNumbers.pop();
+    console.log(numbers);
+  }
+}
 function windowResized() {
   if(!isMobile && windowWidth > width){
     resizeCanvas(windowWidth, height);
