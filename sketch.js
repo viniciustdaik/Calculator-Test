@@ -44,8 +44,11 @@ var operationPreviewText, numberPreviewText;
 
 var oldNumbers = [''];
 
+var digitSound
+
 function preload(){
-  
+  digitSound = loadSound('DigitSoundEffect.mp3');
+  digitSound.setVolume(0.8);
 }
 
 function setup(){
@@ -509,6 +512,11 @@ function draw(){
 
 function keyTyped() {
   if(key !== ''){
+    if(key == '=' || key === 'Enter' || key === '.' || key === ',' || key === '/' || key === '*'
+    || key === '-'|| key === '+'|| key === '0'|| key === '9'|| key === '8' || key === '7'
+    || key === '6'|| key === '5'|| key === '4'|| key === '3'|| key === '2'|| key === '1'){
+      digitSound.play();
+    }
     if (key === '1') {
       handleOne();
     } else if (key === '2') {
@@ -859,7 +867,7 @@ function handlePotencia(){
 }
 
 function handleDelete(){
-  if(oldNumbers.length > 1){
+  if(oldNumbers.length >= 1){
     numbers = oldNumbers[oldNumbers.length-2];
     oldNumbers.pop();
     console.log(numbers);
