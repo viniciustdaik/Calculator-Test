@@ -372,7 +372,7 @@ function draw(){
 
   }
   
-  numberPreviewText.position(width/2-numberPreviewText.width/2, ResultScreen.y-5-ResultScreen.height-numberPreviewText.height/2);
+  numberPreviewText.position(width/2-numberPreviewText.width/2, ResultScreen.y-ResultScreen.height-numberPreviewText.height/2);
   if(!isMobile){
     operationPreviewText.position(ResultScreen.x+5, ResultScreen.y-5-ResultScreen.height);
     //numberPreviewText.position(ResultScreen.x, ResultScreen.y-5-ResultScreen.height-numberPreviewText.height/2);
