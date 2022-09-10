@@ -81,7 +81,7 @@ function setup(){
     numberPreviewText.position(ResultScreen.x, ResultScreen.y-ResultScreen.height/2);//ResultScreen.y-5
   }
   numberPreviewText.size(width-35, 24);
-  numberPreviewText.style('font-size', '36px'); //24px
+  numberPreviewText.style('font-size', '48px'); //24px //36px
   numberPreviewText.style('color', 'blue');
   numberPreviewText.style("text-align", 'center');
   //numberPreviewText.style("background-color", 'lightblue');
@@ -95,7 +95,7 @@ function setup(){
     operationPreviewText.position(ResultScreen.x+5, ResultScreen.y-ResultScreen.height/2);//ResultScreen.y-5
   }
   operationPreviewText.size(24, 24);
-  operationPreviewText.style('font-size', '36px'); //24px
+  operationPreviewText.style('font-size', '48px'); //24px //36px
   operationPreviewText.style('color', 'blue');
   operationPreviewText.style("text-align", 'center');
   //operationPreviewText.style("background-color", 'lightblue');
