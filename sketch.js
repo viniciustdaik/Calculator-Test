@@ -381,8 +381,11 @@ function draw(){
     operationPreviewText.position(ResultScreen.x+5, ResultScreen.y-5-ResultScreen.height);
     //numberPreviewText.position(ResultScreen.x, ResultScreen.y-5-ResultScreen.height-numberPreviewText.height/2);
   }else{
-    operationPreviewText.position(ResultScreen.x+5, ResultScreen.y-ResultScreen.height/2);//ResultScreen.y-5
+ //   operationPreviewText.position(ResultScreen.x+5, ResultScreen.y-ResultScreen.height/2);//ResultScreen.y-5
   //  numberPreviewText.position(ResultScreen.x, ResultScreen.y-ResultScreen.height/2);//ResultScreen.y-5
+      
+      operationPreviewText.position(ResultScreen.x+5, ResultScreen.y-ResultScreen.height-operationPreviewText.height/2);
+
   }
   
   fill('cyan');
