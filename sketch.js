@@ -861,7 +861,8 @@ function handlePotencia(){
     console.log("Potencia:"+potencianumbers);
     result = pow(result, potencianumbers);
     console.log(result);
-
+    dot = false;
+    
     potencianumbers = "";
   }
 }
