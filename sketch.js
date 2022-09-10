@@ -876,6 +876,13 @@ function handleDelete(){
     numbers = oldNumbers[oldNumbers.length-2];
     oldNumbers.pop();
     console.log(numbers);
+
+    var dotCheck = ".";
+    var check = match(oldNumbers[oldNumbers.length-2], oldNumbers[oldNumbers.length-1]);
+    var finalcheck = match(check, dotCheck);
+    if(finalcheck !== "."){
+      dot = false;
+    }
   }
 }
 function windowResized() {
