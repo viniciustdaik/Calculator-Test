@@ -873,12 +873,12 @@ function handlePotencia(){
 
 function handleDelete(){
   if(oldNumbers.length > 1){
-    var dotCheck = ".";
-    var check = match(oldNumbers[oldNumbers.length-2], oldNumbers[oldNumbers.length-1]);
-    var finalcheck = match(check, dotCheck);
-    if(finalcheck !== "."){
-      dot = false;
-    }
+    //var dotCheck = ".";
+    //var check = match(oldNumbers[oldNumbers.length-2], oldNumbers[oldNumbers.length-1]);
+    //var finalcheck = match(check, dotCheck);
+    //if(finalcheck !== "."){
+    //  dot = false;
+    //}
     
     numbers = oldNumbers[oldNumbers.length-2];
     oldNumbers.pop();
