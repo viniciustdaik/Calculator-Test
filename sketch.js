@@ -873,12 +873,28 @@ function handlePotencia(){
 
 function handleDelete(){
   if(oldNumbers.length > 1){
-    //var dotCheck = ".";
-    //var check = match(oldNumbers[oldNumbers.length-2], oldNumbers[oldNumbers.length-1]);
-    //var finalcheck = match(check, dotCheck);
-    //if(finalcheck !== "."){
-    //  dot = false;
-    //}
+    if(oldNumbers.length > 2){
+      var checknewnum = oldNumbers[oldNumbers.length-2];
+      var checkoldnum = oldNumbers[oldNumbers.length-1];
+
+      //checknewnum = checknewnum.toString();
+      //checkoldnum = checkoldnum.toString();
+      
+      if(checknewnum === false && checkoldnum === true){
+        dot = false;
+      }
+
+      if(checknewnum.includes('.') == false && checkoldnum.includes('.') == true){
+        dot = false;
+        console.log("dot = false");
+      }
+
+      //console.log(checknewnum);
+      //console.log(checkoldnum);
+
+      //console.log(checknewnum.includes(dotCheck));
+      //console.log(checkoldnum.includes(dotCheck));
+    }
     
     numbers = oldNumbers[oldNumbers.length-2];
     oldNumbers.pop();
