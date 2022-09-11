@@ -873,18 +873,16 @@ function handlePotencia(){
 
 function handleDelete(){
   if(oldNumbers.length > 1){
-    numbers = oldNumbers[oldNumbers.length-2];
-    
-    console.log(numbers);
-
     var dotCheck = ".";
     var check = match(oldNumbers[oldNumbers.length-2], oldNumbers[oldNumbers.length-1]);
     var finalcheck = match(check, dotCheck);
     if(finalcheck !== "."){
       dot = false;
     }
-
+    
+    numbers = oldNumbers[oldNumbers.length-2];
     oldNumbers.pop();
+    console.log(numbers);
   }
 }
 function windowResized() {
