@@ -901,6 +901,7 @@ function handleDelete(){
     console.log(numbers);
   }
 }
+
 function windowResized() {
   if(!isMobile && windowWidth > width){
     resizeCanvas(windowWidth, height);
